@@ -12,6 +12,9 @@
   width: 100%;
 }
 
+/* .nav-item:hover{
+  transform: scale(1.5);
+} */
 /* ............................... */
 
 .navbar-nav {
@@ -22,55 +25,11 @@
   font-size: 23px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .topnav {
-  overflow: hidden;
-  background: rgba(189, 186, 186, 0.4);
-}
-
-.topnav a {
-  float: right;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  
-}
-
-.topnav a.active {
-  background-color: #04AA6D;
-  color: white;
+/* .nav-link .hover-zoom--slowmo{
+  transform-origin: 50% 65%;
+  transition: transform 5s, filter 3s ease-in-out;
+  filter: brightness(150%);
 } */
-
-/* .topnav .icon {
-  display: none;
-} */
-
-/* .topnav a:hover {
-  background-color: #ddd;
-  color: black;
-} */
-
-
 
 .logo {
   height: 99px;
