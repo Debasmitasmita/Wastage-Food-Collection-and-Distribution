@@ -1,3 +1,81 @@
+<?php
+
+
+require_once "config.php";
+
+$username = $password = $confirm_password = "";
+$username_err = $password_err = $confirm_password = "";
+
+if ($_SERVER['REQUeST_METHOD']) == "POST"){
+    // check user is empty
+    if(empty(trim($_POST['username']))){
+        $username_err = "Username can not be blanck";
+    }
+    else{
+        $sql = "SELECT id FROM users WHERE username = ?";
+        $stmt = mysqli_prepare($conn,$sql);
+        if($stmt)
+        {
+            mysqli_stmt_bind_param($stmt,"s",. $param_username);
+
+            // set the valu of param username
+            $param_username = trim($_POST['username']);
+
+            // execute the statement
+
+            if(mysqli_stmt_execute($stmt)){
+                mysqli_stmt_store_result($stmt);
+                if(mysqli_stmt_num_rows($stmt) == 1)
+                {
+                    $username_err = "This username is already use";
+                }
+                else{
+                    $username = trim($_POST['username']);
+                }
+            }
+            else{
+                echo "Somthing went wrong";
+            }
+        }
+    }
+    mysqli_stmt_close($stmt);
+}
+// check for password
+if(empty(trim($_POST['possword']))){
+    $password_err = "password cannot be blank";
+}
+elseif(strlen(trim($_POST['password'])) < 5){
+    $password_err = "password cannot be less than  5 chareactar";
+}
+else{
+    $password = trim($_POST['password']);
+}
+// check for confirm password
+if(trim($_POST['possword']) == trim($_POST['confirm_possword'])){
+    $password_err = "please should match";
+}
+
+// if there were no errors,go ahead and insert into the database
+if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
+{
+    $sql = "INSERT INTO users(username,password)VALUES(?,?)";
+    $stmt = mysqli_prepare($conn,$sql)
+    if($stmt)
+    {
+        mysqli_stmt_bind_param($stmt,"ss",$param_username,$param_password);
+
+        // Set these parameters 
+        $param_username = $username;
+        $param_password = 
+    }
+}
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,9 +104,7 @@
 
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign In</p>
 
-                                    <form class="mx-1 mx-md-4">
-
-
+                                    <form class="mx-1 mx-md-4" >
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
@@ -43,6 +119,14 @@
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" id="form3Example4c" class="form-control" />
                                                 <label class="form-label" for="form3Example4c">Password</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="password" id="form3Example4c" class="form-control" />
+                                                <label class="form-label" for="form3Example4c"> Confirm_password</label>
                                             </div>
                                         </div>
 
