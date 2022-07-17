@@ -44,7 +44,7 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" />
+                        <input type="email" id="form3Example3c" class="form-control" name="userrole"/>
                         <label class="form-label" for="form3Example3c">User Role</label>
                       </div>
                     </div>
@@ -52,14 +52,14 @@
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" />
+                        <input type="email" id="form3Example3c" class="form-control" name="state" />
                         <label class="form-label" for="form3Example3c">User State</label>
                       </div>
                     </div>
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
-                        <input type="email" id="form3Example3c" class="form-control" />
+                        <input type="email" id="form3Example3c" class="form-control" name="city" />
                         <label class="form-label" for="form3Example3c">User city</label>
                       </div>
                     </div>
