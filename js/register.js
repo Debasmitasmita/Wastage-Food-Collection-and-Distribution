@@ -4,8 +4,6 @@ $(document).ready(function(){
     $("#register").click(function(){
         var registerFormDataid = document.getElementById('registerFormData');
         var registerFormData = new FormData(registerFormDataid);
-        console.log("data",registerFormData);
-
         $.ajax({
             url: 'php/register.php',
             type: 'POST',
@@ -13,7 +11,14 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             success: function (data) {
-               console.log("data",data);
+                var respose_data =JSON.parse(data) //covert json to object
+                console.log("respose_data",respose_data);
+                if (respose_data.icon == 'success') {
+                    swal(respose_data);
+                } else {
+                    swal(respose_data);
+                }
+
             }
 
         });
